@@ -9,17 +9,39 @@ RUN echo 'APT::Get::Assume-Yes "true";' >> /etc/apt/apt.conf \
     && apt-get update && apt-get upgrade
 
 RUN apt-get install \
-    aptitude \
+    autoconf \
+    automake \
+    autotools-dev \
+    libtool \
+    libtool-bin \
+    cmake \
+    cmake-curses-gui \
+    ninja-build \
+    p7zip-full \
+    p7zip-rar \
+    valgrind
+
+RUN apt-get install \
+    texinfo \
     texinfo-doc-nonfree \
     info \
+    man \
+    manpages \
+    ispell \
     aspell \
-    unrar \
-    traceroute \
-    iputils-ping \
-    iputils-arping \
-    psmisc \
+    hunspell
+
+RUN apt-get install \
+    git \
+    bzr \
+    cvs \
+    subversion
+
+RUN apt-get install \
+    htop \
+    multitail \
+    tree \
     gnupg2 \
-    whois \
-    dnsutils \
-    cron \
-    sl
+    gpm
+
+RUN git clone https://github.com/universal-ctags/ctags.git
