@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo 'APT::Get::Assume-Yes "true";' >> /etc/apt/apt.conf \
     && apt-get update && apt-get upgrade
 
+# Build tools
 RUN apt-get install \
     autoconf \
     automake \
@@ -16,27 +17,36 @@ RUN apt-get install \
     libtool-bin \
     cmake \
     cmake-curses-gui \
-    ninja-build \
+    ninja-build
+
+# Archive & compression support
+RUN apt-get install \
     p7zip-full \
     p7zip-rar \
     valgrind
 
+# Documentation
 RUN apt-get install \
     texinfo \
     texinfo-doc-nonfree \
     info \
     man \
-    manpages \
+    manpages
+
+# Language
+RUN apt-get install \
     ispell \
     aspell \
     hunspell
 
+# Version control system
 RUN apt-get install \
     git \
     bzr \
     cvs \
     subversion
 
+# Terminal Utilities
 RUN apt-get install \
     htop \
     multitail \
