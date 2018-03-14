@@ -54,4 +54,11 @@ RUN apt-get install \
     gnupg2 \
     gpm
 
-RUN git clone https://github.com/universal-ctags/ctags.git
+# For compiler development
+RUN apt-get install \
+    flex \
+    bison
+
+# Support for PPAs
+RUN apt-get install \
+    software-properties-common
