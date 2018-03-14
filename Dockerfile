@@ -62,3 +62,7 @@ RUN apt-get install \
 # Support for PPAs
 RUN apt-get install \
     software-properties-common
+
+RUN tac /etc/apt/apt.conf \
+    | sed '0,/APT::Get::Assume-Yes "true";/{/APT::Get::Assume-Yes "true";/d;}' \
+    | tac > /etc/apt/apt.conf
